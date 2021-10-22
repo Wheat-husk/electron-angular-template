@@ -1,0 +1,71 @@
+import * as os from 'os';
+import * as path from 'path';
+import * as url from 'url';
+import { app, BrowserWindow } from 'electron';
+import { Loader } from './loader';
+import { ChromeDevtoolsLoader } from './loader/devtools';
+import { isServe } from './utils';
+const appName = 'image compress';
+
+process.env.ELECTRON_DISABLE_SECURITY_WARNINGS = '1';
+
+console.log(process.env.XDG_CURRENT_DESKTOP );
+
+export class App {
+  static load() {
+    const main = new App();
+    main.createProgram();
+    return main;
+  }
+
+  private createProgram() {
+    app.setName(appName);
+    this.windowAllClosed();
+
+    const win = this.createWindow();
+
+    Loader.load(win);
+    this.secondInstance(win);
+    this.loadURL(win);
+  }
+
+  private createWindow() {
+    return new BrowserWindow({
+      width: 800 + (os.platform() === 'darwin' ? 15 : 34),
+      height: 600,
+      minWidth: 560,
+      minHeight: 560,
+      icon: path.join(__dirname, 'favicon.ico'),
+      frame: true,
+      webPreferences: {
+        webSecurity: false,
+        nodeIntegration: true,
+        contextIsolation: false,
+      },
+    });
+  }
+  private loadURL(win: BrowserWindow) {
+    if (isServe) {
+      win.webContents.openDevTools();
+      ChromeDevtoolsLoader.load();
+      win.loadURL('http://localhost:4200');
+    } else {
+      win.loadURL(
+        url.pathToFileURL(path.join(__dirname, '../renderer/index.html')).href
+      );
+    }
+  }
+  private secondInstance(win: BrowserWindow) {
+    app.on('second-instance', () => {
+      if (win) {
+        if (win.isMinimized()) win.restore();
+        win.focus();
+      }
+    });
+  }
+  private windowAllClosed() {
+    app.on('window-all-closed', () => {
+      app.quit();
+    });
+  }
+}

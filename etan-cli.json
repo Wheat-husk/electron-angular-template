@@ -1,0 +1,45 @@
+{
+  "tsConfigPath": "tsconfig.serve.json",
+  "builder": {
+    "productName": "image_compress",
+    "directories": {
+      "output": "release/"
+    },
+    "files": [
+      "lib/main.js",
+      "./favicon.ico",
+      "lib/config/**/*",
+      "dist/**/*",
+      "!*/**/*.js.map",
+      "!*/**/*.ts"
+    ],
+    "appId": "com.image_compress.app",
+    "nsis": {
+      "oneClick": false,
+      "allowElevation": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "perMachine": true
+    },
+    "asar": {
+      "smartUnpack": true
+    },
+    "win": {
+      "icon": "dist/assets/icons",
+      "target": ["nsis", "zip"]
+    },
+    "mac": {
+      "category": "public.app.category.imgCompress",
+      "icon": "dist/assets/icons",
+      "target": ["dmg", "zip"]
+    },
+    "linux": {
+      "icon": "dist/assets/icons",
+      "target": ["AppImage"],
+      "category": "Graphics Tool",
+      "publish": ["github"]
+    },
+    "publish": ["github"]
+  }
+}

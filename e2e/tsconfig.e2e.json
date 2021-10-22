@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "outDir": "../out-tsc/e2e",
+    "module": "commonjs",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "target": "es6",
+    "skipLibCheck": true,
+    "lib": ["es2017"],
+    "strict": true,
+    "types": [
+      "mocha",
+      "node"
+    ]
+  },
+  "include": [
+    "**.ts"
+  ]
+}

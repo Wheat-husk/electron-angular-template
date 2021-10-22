@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "baseUrl": "./src/main",
+    "outDir": "./dist/",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "target": "es6",
+    "skipLibCheck": true,
+    "lib": ["es2017"],
+    "strict": true
+  },
+  "files": ["src/main.ts"],
+  "include": ["src/main", "src/common"],
+  "exclude": ["node_modules", "src/renderer", "src/assets"]
+}

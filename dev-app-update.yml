@@ -1,0 +1,4 @@
+provider: github
+owner: AlanSean
+repo: electron-angular-template
+updaterCahceDirName: electron-angular-template-updater

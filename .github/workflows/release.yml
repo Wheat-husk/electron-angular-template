@@ -1,0 +1,26 @@
+name: release
+
+on: [ create ]
+jobs:
+  release:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macOS-latest]
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v2
+
+      - name: Use Node.js 
+        uses: actions/setup-node@v1
+        with:
+          node-version: 15.14.0
+
+      #https://github.com/samuelmeuli/action-electron-builder
+      - name: release
+        uses: samuelmeuli/action-electron-builder@v1
+        with:
+          github_token: ${{ secrets.GH_TOKEN }}
+          release: ${{ startsWith(github.ref, 'refs/tags/v') }}
+            

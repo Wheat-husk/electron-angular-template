@@ -1,0 +1,38 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "module": "esnext",
+    "target": "esnext",
+    "baseUrl": "./src",
+    "outDir": "./dist/out-tsc",
+    "noUnusedLocals": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "downlevelIteration": true,
+    "sourceMap": true,
+    "declaration": false,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "allowSyntheticDefaultImports": true,
+    "typeRoots": ["node_modules/@types"],
+    "paths": {
+      "@common/*": ["common/*"],
+      "@assets/*": ["assets/*"],
+      "@utils/*": ["renderer/utils/*"],
+      "@app/*": ["renderer/app/*"]
+    },
+    "lib": ["esnext", "dom"]
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  },
+  "exclude": ["node_modules", "!src/renderer/assets/**/*.js", "src/Extensions"]
+}
