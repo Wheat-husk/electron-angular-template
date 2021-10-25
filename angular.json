@@ -99,7 +99,7 @@
             "main": "src/renderer/test.ts",
             "polyfills": "src/renderer/polyfills.ts",
             "tsConfig": "src/renderer/tsconfig.spec.json",
-            "karmaConfig": "karma.conf.js",
+            "karmaConfig": "src/renderer/karma.conf.js",
             "inlineStyleLanguage": "sass",
             "assets": [
               "src/renderer/favicon.ico",

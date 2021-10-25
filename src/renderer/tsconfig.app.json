@@ -4,6 +4,12 @@
   "compilerOptions": {
     "noUnusedLocals": false
   },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  },
   "files": ["main.ts", "polyfills.ts"],
   "exclude": ["**/*.spec.ts"]
 }

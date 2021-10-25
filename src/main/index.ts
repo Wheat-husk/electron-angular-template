@@ -41,6 +41,7 @@ export class App {
         webSecurity: false,
         nodeIntegration: true,
         contextIsolation: false,
+        enableRemoteModule: true 
       },
     });
   }
